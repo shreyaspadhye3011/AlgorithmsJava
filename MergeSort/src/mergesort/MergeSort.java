@@ -77,41 +77,33 @@ public class MergeSort
         int rIndex=0;
         int resIndex=0;
         
-        while(lIndex<left.length || rIndex<right.length)
-        {
-            if(lIndex<left.length && rIndex<right.length)
-            {
-                if(left[lIndex]<right[rIndex])
-                {
+        while(lIndex<left.length || rIndex<right.length) {
+            if(lIndex<left.length && rIndex<right.length) {
+                if (left[lIndex]<right[rIndex]) {
                     result[resIndex]=left[lIndex];
                     lIndex++;
                     resIndex++;
                 }
-                else
+                else {
+                    result[resIndex]=right[rIndex];
+                    rIndex++;
+                    resIndex++;
+                }
+            }
+            else if (lIndex<left.length) {
+                while(lIndex<left.length) {
+                    result[resIndex]=left[lIndex];
+                    lIndex++;
+                    resIndex++;
+                }
+            } else {
+                while(rIndex<right.length)
                 {
                     result[resIndex]=right[rIndex];
                     rIndex++;
                     resIndex++;
                 }
             }
-            else if(lIndex<left.length)
-            {
-                while(lIndex<left.length)
-                {
-                    result[resIndex]=left[lIndex];
-                    lIndex++;
-                    resIndex++;
-                }
-            }
-                else
-                {
-                 while(rIndex<right.length)
-                 {
-                    result[resIndex]=right[rIndex];
-                    rIndex++;
-                    resIndex++;
-                 }
-                }
         }
         return result;
     }
